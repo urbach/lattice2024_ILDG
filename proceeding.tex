@@ -43,6 +43,53 @@ Liverpool, UK\\}
 
 \section{Introduction}
 
+The International Lattice Data Grid (ILDG) represents an joint effort
+of the Lattice QCD (LQCD) community, which started some 20 years ago
+with the goal to share valuable gauge configurations worldwide. The
+ILDG was implemented as a federation of autonomous regional grids,
+CSSM for Australia, JLDG for Japan, Latfor DataGrid (LDG) for
+continental Europe, UK Lattice Field Theory for the UK, and USQCD for
+the US.
+
+Each regional grid autonomously operates the ILDG core services: a
+website, a metadata catalogue (MDC), a file catalogue (FC), and
+storage elements (SM). The ILDG itself forms a virtual organisation
+providing in particular a user registration and authentication
+service, which implement the international interoperability of the
+regional grids. The user registration and authentication service
+originally used the virtual organisation membership service (VOMS),
+which is now replaced by an identity and access management (IAM)
+service, see below. 
+
+The ILDG as an organisation is borne by the ILDG board, the Metadata
+Working Group (MDWG), and the Middleware Working Group (MWG). The ILDG
+board is responsible for administrative and organisational matters of
+the ILDG. The MDWG is responsible for the specification and update of
+metadata schemata and file formats, and the MWG for the underlying
+services. While not explicitly intendet at the time, the ILDG
+implements the FAIR principles, i.e Findability, Accessibility,
+Interoperability, and Reusability.
+
+Due to lack of resources, the ILDG services unfortunately degraded
+over the last decade. Only due to funding obtained as part of the NFDI
+(national research data initiative) funding scheme of the German
+Research Foundation (DFG) and the NFDI funded PUNCH4NFDI (Paricles,
+Universe, Nuclei and Hadrons for the NFDI) consortium it became
+possible to refurbish, modernise, and resume the ILDG services. In
+parallel, a significant effort was made to extend the metadata
+schemata and file formats to serve modern requirements of the LQCD
+community and beyond.
+
+These efforts led to a modern re-implementation of the metadata and
+file catalogue services based on the REST API allowing for a simple
+containerised deployment, a new user registration and authentication
+service based on IAM hosted at CNAF (INFN) based on a memorandum of
+understanding between CNAF and ILDG, new versions of the configuration
+and ensemble metadata schemata as well as a new version of the file
+format, and prototype implementations of client tools for the command
+line, with a GUI, and with a web interface. Details will be discussed
+in the reminder of this proceeding contribution.
+
 
 
 \section{Conclusions}
