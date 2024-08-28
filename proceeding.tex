@@ -90,7 +90,132 @@ format, and prototype implementations of client tools for the command
 line, with a GUI, and with a web interface. Details will be discussed
 in the reminder of this proceeding contribution.
 
+\section{Metadata Schemata}
 
+Metadata schemata aim to provide means to markup data in a
+standardised and unique way. At the same time, such schemata should be
+easily extensible and flexible to handle. The Extensible Markup
+Language (XML) fulfils these requirements: it is a W3C standard, it
+provides powerful query and search technology via XPATH, and well
+tested and open source software implementations are
+available. Moreover, with the XML Schema Definition (XSD), schemata
+and unique data markup can be standardised. While mainly aimed
+for machine readability, XML is also half-decently human readable.
+For these reasons the ILDG schemata are based on XML/XSD, which worked
+very successfully since the beginning.
+
+Nowadays, JSON or YAML could be used as alternatives to XML. However, for
+backward compatibility, ILDG will stick to XML/XSD. Also, there are no
+obvious advantages of JSON or YAML over XML, apart from YAML being
+slightly easier to read for humans, and JSON and/or YAML description
+can be in principle always converted into XML (up to some caveats, we
+are not going to discuss here).
+
+The structure of the markup in ILDG is as follows: the binary (gauge
+configuration) data is 
+stored as one so-called message in a container file (lime format)
+together with another message containing a minimal markup of this
+data, including a checksum and its site-independent logical file name
+(LFN). This binary file needs to follow the \emph{ILDG binary format}.
+This binary data is stored on a storage element and marked up
+by a separate \emph{configuration XML file}. This configuration XML file is
+required to validate against the ILDG configuration XML schema. Apart
+from some configuration specific information like for instance the
+plaquette value, the configuration XML file links to the binary file
+via the LFN, but also to the Markov chain or ensemble the
+configuration belongs to via the Markov Chain Uniform Resource
+Identifier (markovChainURI). Finally, the ensemble is marked up using
+an \emph{ensemble XML file}, which need to validate against the ILDG
+ensemble XML schema. This XML file compiles all information common to all
+configurations that are part of the ensemble. This information
+includes for instance the algorithm description and the lattice action.
+
+For the entension of the file format and ILDG XML schemata, the
+community was queried, and the MDWG reviewed, discussed and
+implemented most of the requests. The changes are compiled in an
+extensive document \emph{cite!?}, with an overview provided in the
+following.
+
+Common changes to both, the configuration and the ensemble XML schema
+concern the possibility to specify the ORCID as an alternative to
+specifying name and institution in the \texttt{<participant>}
+element. Thus, the participant can be describe by an \texttt{<orcid>}
+element, followed by optional \texttt{<name>} and/or
+\texttt{<institution>}, or the by latter two.
+
+Moreover, at top-level there is a new
+\texttt{<additionalInfo>} free (and optional) sub-tree, which can be
+used to provide additional information. Several other elements allow
+now for a new \texttt{<annotation>} sub-element in order to be able to
+provide more specific additional information. The new
+\texttt{<annotation>} element also replaces the former
+\texttt{<comment>} element.
+
+\subsection{Ensemble XML}
+
+The ensemble XML schema was extended by three major changes. First,
+there is now the possibility to specify a funding reference via one or
+more \texttt{<fundingReference>} elements as a non-empty list of
+\texttt{<fundingReference>} elements. The MDWG decided to follow
+here the example of the DataCite schema, however, restricted to a
+subset of it. Every funding reference has a mandatory
+\texttt{<funderName>} element and/or optional \texttt{<awardTitle>}
+and \texttt{<awardNumber>} child elements.
+
+Second, a license must be specified as part of the ensemble XML, which
+is a requirement to be compliant with the FAIR principles. One can
+specify standard licensis, like e.g. a GNU public license, or a custom
+license. This \texttt{<license>} element comes with two important
+additional possibilities: one is the possibility to specify an embargo
+data, the other is to provide a way to specify how the usage of the
+ensemble must be acknowleged in a respective publication.
+For more details we refer to the MDWG document.
+
+Third, the list of lattice actions and gauge groups has been
+significantly extended to reflect the progress in the field. The
+supported gauge groups are now SU$(N)$ and SO$(N)$ for $N\geq 2$,
+SP$(N)$ with even $N\geq 4$ and U$(N)$ with $N\geq1$.
+
+On the lattice action side, several new action types have been
+defined. To account for the growing number of works including QED
+effects, QED gauge actions are available as new XML elements.
+Higher fermion representations are now
+possible to markup, including for instance fermions in the adjoint
+represenation. Open boundary conditions with and without Schrödinger
+functional can be marked up, Möbius domain-wall fermions as well as
+Wilson clover fermions with exponetial clover term.
+
+Finally, it is possible to specify fermions coupled to electromagnetic
+fields. Initially, the ensemble XML schema includes so-called SLINC
+fermions as used by QCDSF and the coupling in the framework of
+$C^\star$ boundary conditions.
+
+\subsection{Configuration XML}
+
+The main change in the ILDG configuration XML schema is due to the
+request to store multiple gauge configurations in a single binary
+file. In order to make this possible, the one-to-one correspondence
+between one single gauge configuration binary data and one single
+configuration XML file had to abandoned. Instead of a single
+\texttt{<markovStep>} element, there is 
+now a single \texttt{<markovSequence>} element per configuration XML
+file. The \texttt{<markovSequence>} can have one or more
+\texttt{<markovStep>} elements as child elements. The latter have the
+checksum stored in \texttt{<crcCheckSum>} and the plaquette in
+\texttt{<avePlaquette>} sub-elements. For consistency, the Markov
+Chain URI (\texttt{<markovChainURI>}) and the \texttt{<series>}
+elements are now mandatory sub-element of \texttt{<markovSequence>}. 
+
+In the context of these changes, also the LFN was moved to become the
+first top-level element (\texttt{<dataLFN>}) in the configuration schema.
+
+\subsection{ILDG file format}
+
+\section{ILDG Core Services}
+
+\subsection{Metadata and File Catalogues}
+
+\subsection{User Registration and Authentication}
 
 \section{Conclusions}
 
