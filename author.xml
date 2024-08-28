@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE collaborationauthorlist SYSTEM "author.dtd">
+<collaborationauthorlist
+    xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+    xmlns:cal="http://inspirehep.net/info/HepNames/tools/authors_xml/">
+  
+    <cal:creationDate>2024-08-28_16:48</cal:creationDate>
+    <cal:publicationReference>XX</cal:publicationReference>
+
+    <cal:collaborations>
+        <cal:collaboration id="etmc">
+            <foaf:name>ETMC</foaf:name>
+        </cal:collaboration>
+        <cal:collaboration id="cls">
+            <foaf:name>CLS</foaf:name>
+        </cal:collaboration>
+    </cal:collaborations>
+  
+    <cal:organizations>
+      <foaf:Organization id="bonn">
+        <cal:orgDomain>http://uni-bonn.de</cal:orgDomain>
+        <foaf:name>Rheinische Friedrich-Wilhelms-Universität Bonn</foaf:name>
+        <cal:orgName source="ROR">https://ror.org/041nas322</cal:orgName>
+        <cal:orgAddress>53115 Bonn, Germany</cal:orgAddress>
+      </foaf:Organization>
+      <foaf:Organization id="desy">
+        <cal:orgDomain>https://www.desy.de</cal:orgDomain>
+        <foaf:name>Deutsches Elektronen-Synchrotron DESY</foaf:name>
+        <cal:orgName source="ROR">https://ror.org/01js2sh04</cal:orgName>
+        <cal:orgAddress>15738 Zeuthen, Germany</cal:orgAddress>
+      </foaf:Organization>
+      
+    </cal:organizations>
+  
+    <cal:authors>
+      <foaf:Person>
+        <foaf:name>Hideo Matsufuru</foaf:name>
+        <cal:authorNameNative/>
+        <foaf:givenName>Hideo</foaf:givenName>
+        <foaf:familyName>Matsufuru</foaf:familyName>
+        <cal:authorNamePaper>Hideo Matsufuru</cal:authorNamePaper>
+        <cal:authorids>
+          <cal:authorid source="ORCID">https://orcid.org/0000-0003-1056-3969</cal:authorid>
+        </cal:authorids>
+      </foaf:Person>
+      <foaf:Person>
+        <foaf:name>Hubert Simma</foaf:name>
+            <cal:authorNameNative/>
+            <foaf:givenName>Hubert</foaf:givenName>
+            <foaf:familyName>Simma</foaf:familyName>
+            <cal:authorNamePaper>Huber Simma</cal:authorNamePaper>
+            <cal:authorCollaboration collaborationid="CLS" />
+            <cal:authorAffiliations>
+              <cal:authorAffiliation organizationid="desy"/>
+            </cal:authorAffiliations>
+            <cal:authorids>
+                <cal:authorid source="ORCID">https://orcid.org/0000-0003-4155-8070</cal:authorid>
+            </cal:authorids>
+        </foaf:Person>
+      <foaf:Person>
+        <foaf:name>Carsten Urbach</foaf:name>
+            <cal:authorNameNative/>
+            <foaf:givenName>Carsten</foaf:givenName>
+            <foaf:familyName>Urbach</foaf:familyName>
+            <cal:authorNamePaper>Carsten Urbach</cal:authorNamePaper>
+            <cal:authorCollaboration collaborationid="etmc" />
+            <cal:authorAffiliations>
+                <cal:authorAffiliation organizationid="bonn"/>
+            </cal:authorAffiliations>
+            <cal:authorids>
+                <cal:authorid source="ORCID">https://orcid.org/0000-0003-1412-7582</cal:authorid>
+            </cal:authorids>
+        </foaf:Person>
+    </cal:authors>
+</collaborationauthorlist>
